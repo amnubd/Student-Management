@@ -6,7 +6,8 @@ while True:
       3. Search Student
       4. Calculate Average Marks
       5. Find Topper
-      6. Exit
+      6. Delete Student
+      7. Exit
       """)
     choice = int(input("Enter your choice: "))
     if choice == 1:
@@ -48,6 +49,13 @@ while True:
         else:
             print("No students available to find the topper.")
     elif choice == 6:
+        delete_name = input("Enter student name to delete: ")
+        if delete_name in student:
+            del student[delete_name]
+            print("Student deleted successfully!")
+        else:
+            print("Student not found.")
+    elif choice == 7:
         print("Exiting the program.")
         break
     else:
