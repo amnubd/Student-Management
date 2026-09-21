@@ -7,7 +7,8 @@ while True:
       4. Calculate Average Marks
       5. Find Topper
       6. Delete Student
-      7. Exit
+      7. Sort Students
+      8. Exit
       """)
     choice = int(input("Enter your choice: "))
     if choice == 1:
@@ -56,7 +57,19 @@ while True:
         else:
             print("Student not found.")
     elif choice == 7:
-        print("Exiting the program.")
-        break
+        choice=input("Sort by name or marks? (name/marks): ")
+        if choice == "name":
+            sorted_students = sorted(student.items())
+            print("Students sorted by name:")
+            for i in sorted_students:
+                print(i[0], "|", i[1][0], "|", i[1][1])
+        elif choice == "marks":
+            sorted_students = sorted(student.items(), key=lambda x: x[1][1], reverse=True)
+            print("Students sorted by marks:")
+            for i in sorted_students:
+                print(i[0], "|", i[1][0], "|", i[1][1])
+        elif choice == "exit":
+            print("Exiting the program.")
+            break
     else:
         print("Invalid choice. Please try again.")
