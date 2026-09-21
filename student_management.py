@@ -8,7 +8,8 @@ while True:
       5. Find Topper
       6. Delete Student
       7. Sort Students
-      8. Exit
+      8. Grade Students
+      9. Exit
       """)
     choice = int(input("Enter your choice: "))
     if choice == 1:
@@ -71,5 +72,25 @@ while True:
         elif choice == "exit":
             print("Exiting the program.")
             break
+    elif choice == 8:
+        print("Grading students...")
+        if student:
+            for name, (course, marks) in student.items():
+                if marks >= 90:
+                    grade = "A+"
+                elif marks >= 80:
+                    grade = "A"
+                elif marks >= 70:
+                    grade = "B"
+                elif marks >= 60:
+                    grade = "C"
+                elif marks >= 50:
+                    grade = "F"
+                print(f"Student: {name}, Course: {course}, Marks: {marks}, Grade: {grade}")
+        else:
+            print("No students available to grade.")
+    elif choice == 9:
+        print("Exiting the program.")
+        break   
     else:
         print("Invalid choice. Please try again.")
